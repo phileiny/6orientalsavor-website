@@ -1,0 +1,214 @@
+/* ===== 六宴食堂 — 品牌色系 ===== */
+:root{
+  --brown:#3f1f0f;
+  --cream:#f7dec2;
+  --orange:#eb613c;
+  --cream-bg:#fdf4e6;
+  --paper:#fffaf2;
+  --brown-soft:#6b4a35;
+  --shadow:0 10px 30px rgba(63,31,15,.10);
+  --radius:18px;
+  --maxw:1120px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans TC","Taipei Sans TC Beta","PingFang TC",sans-serif;
+  color:var(--brown);
+  background:var(--cream-bg);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ===== 按鈕 ===== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 26px;border-radius:999px;font-weight:700;font-size:1rem;
+  transition:transform .15s ease,box-shadow .2s ease,background .2s ease,color .2s ease;
+  cursor:pointer;border:2px solid transparent;white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 8px 20px rgba(235,97,60,.35)}
+.btn-primary:hover{background:#d94f2c}
+.btn-ghost{background:transparent;color:var(--brown);border-color:var(--brown)}
+.btn-ghost:hover{background:var(--brown);color:var(--cream)}
+.btn-nav{padding:9px 20px;font-size:.95rem;background:var(--orange);color:#fff}
+.btn-nav:hover{background:#d94f2c}
+
+/* ===== Header ===== */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(253,244,230,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(63,31,15,.08);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{border-radius:50%}
+.brand-name{font-weight:900;font-size:1.35rem;letter-spacing:.06em}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-weight:500;font-size:1rem;position:relative}
+.nav a:not(.btn):hover{color:var(--orange)}
+.nav a:not(.btn)::after{
+  content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;
+  background:var(--orange);transition:width .2s ease;
+}
+.nav a:not(.btn):hover::after{width:100%}
+
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.nav-toggle span{width:26px;height:3px;background:var(--brown);border-radius:2px;transition:.25s}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;text-align:center;
+  padding:64px 0 130px;
+  background:
+    radial-gradient(120% 80% at 50% -10%, #ffe9cf 0%, var(--cream-bg) 60%);
+  overflow:hidden;
+}
+.hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.hero-inner>*{max-width:100%}
+.hero-logo{width:190px;height:190px;border-radius:50%;box-shadow:var(--shadow)}
+.hero-kicker{margin-top:26px;font-weight:700;letter-spacing:.35em;color:var(--orange);font-size:1rem}
+.hero-title{font-size:clamp(2.3rem,6vw,3.6rem);font-weight:900;line-height:1.25;margin-top:10px;letter-spacing:.04em}
+.hero-sub{margin-top:18px;color:var(--brown-soft);font-size:1.05rem;text-wrap:balance}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+.hero-rating{
+  display:inline-flex;align-items:center;gap:10px;margin-top:22px;
+  padding:8px 18px;border-radius:999px;background:var(--paper);box-shadow:var(--shadow);
+  font-weight:500;font-size:.95rem;
+}
+.hero-rating .stars{color:#f5a623;letter-spacing:2px}
+.hero-rating:hover{color:var(--orange)}
+
+/* ===== 青海波波浪分隔 ===== */
+.wave-divider{
+  position:absolute;left:0;right:0;bottom:0;height:60px;
+  background:var(--orange);
+  -webkit-mask:var(--wave-mask);mask:var(--wave-mask);
+  --wave-mask:radial-gradient(circle at 25px 0,transparent 24px,#000 25px) 0 0/50px 60px repeat-x;
+}
+
+/* ===== 通用區塊 ===== */
+.section{padding:78px 0}
+.eyebrow{text-transform:uppercase;letter-spacing:.3em;font-size:.8rem;font-weight:700;color:var(--orange);text-align:center}
+.section-title{text-align:center;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:900;margin-top:12px;line-height:1.35}
+.section-lead{text-align:center;color:var(--brown-soft);margin-top:14px;font-size:1.05rem}
+
+/* ===== 品牌故事 ===== */
+.story{background:var(--paper)}
+.story-body{max-width:720px;margin:32px auto 0;text-align:center}
+.story-body p{margin-top:16px;font-size:1.08rem;color:#4a2f1c}
+.story-body strong{color:var(--orange)}
+.mobile-br{display:none}
+
+/* ===== 招牌三主打 ===== */
+.sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
+.sig-card{
+  background:var(--paper);border-radius:var(--radius);padding:20px;text-align:center;
+  box-shadow:var(--shadow);transition:transform .2s ease,box-shadow .2s ease;
+}
+.sig-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(63,31,15,.16)}
+.sig-img{border-radius:14px;overflow:hidden;background:var(--cream);aspect-ratio:1/1}
+.sig-img img{width:100%;height:100%;object-fit:cover}
+.sig-card h3{margin-top:18px;font-size:1.3rem;font-weight:900}
+.sig-card p{margin-top:10px;color:var(--brown-soft);font-size:.96rem;min-height:4.5em}
+.price{display:inline-block;margin-top:14px;font-weight:900;color:var(--orange);font-size:1.2rem}
+
+/* ===== 完整菜單 ===== */
+.menu{background:var(--cream-bg)}
+.menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:30px 56px;max-width:920px;margin:46px auto 0}
+.menu-group{margin-bottom:34px}
+.menu-heading{
+  font-size:1.2rem;font-weight:900;color:var(--brown);
+  padding-bottom:10px;margin-bottom:8px;
+  border-bottom:2px solid var(--orange);display:inline-block;
+}
+.menu-item{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:11px 0;border-bottom:1px dashed rgba(63,31,15,.14)}
+.menu-item:last-child{border-bottom:0}
+.mi-text{display:flex;flex-direction:column;gap:3px}
+.mi-name{font-weight:700;font-size:1.05rem}
+.mi-desc{font-size:.86rem;color:var(--brown-soft)}
+.mi-price{font-weight:900;color:var(--orange);white-space:nowrap;font-size:1.05rem}
+.mi-price::before{content:"$";font-size:.8em;margin-right:1px}
+.menu-item.compact{align-items:center}
+.menu-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+
+/* ===== 特色 ===== */
+.features{background:var(--brown);color:var(--cream)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.feat{text-align:center;padding:10px}
+.feat-ico{font-size:2.6rem;display:block}
+.feat h3{margin-top:14px;font-size:1.25rem;font-weight:900;color:#fff}
+.feat p{margin-top:10px;color:#e9cfae;font-size:.98rem}
+
+/* ===== 門市資訊 ===== */
+.visit{background:var(--paper)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.visit-info .eyebrow,.visit-info .section-title{text-align:left}
+.info-list{list-style:none;margin-top:26px}
+.info-list li{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid rgba(63,31,15,.1);font-size:1.05rem}
+.info-label{flex:0 0 68px;font-weight:900;color:var(--orange)}
+.info-list a:hover{color:var(--orange)}
+.hours{display:flex;flex-direction:column;gap:4px}
+.social-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.social-row .btn{padding:10px 20px;font-size:.95rem}
+.visit-map{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);min-height:360px}
+.visit-map iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
+
+/* ===== Footer ===== */
+.site-footer{background:var(--cream-bg);padding-top:56px;text-align:center}
+.footer-inner img{margin:0 auto;border-radius:50%}
+.footer-name{margin-top:14px;font-weight:900;font-size:1.2rem}
+.footer-tag{color:var(--orange);font-weight:700;margin-top:6px}
+.footer-copy{margin-top:16px;color:var(--brown-soft);font-size:.85rem;padding-bottom:34px}
+.wave-band{
+  height:46px;background:var(--brown);
+  -webkit-mask:radial-gradient(circle at 23px 46px,transparent 22px,#000 23px) 0 0/46px 46px repeat-x;
+          mask:radial-gradient(circle at 23px 46px,transparent 22px,#000 23px) 0 0/46px 46px repeat-x;
+}
+
+/* ===== 響應式 ===== */
+@media (max-width:860px){
+  .sig-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+  .sig-card p{min-height:0}
+  .menu-cols{grid-template-columns:1fr;max-width:480px;gap:0}
+  .feat-grid{grid-template-columns:1fr;gap:34px}
+  .visit-grid{grid-template-columns:1fr;gap:30px}
+  .visit-info .eyebrow,.visit-info .section-title{text-align:center}
+  .mobile-br{display:inline}
+
+  .nav-toggle{display:flex}
+  .nav{
+    position:fixed;inset:68px 0 auto 0;flex-direction:column;gap:0;
+    background:var(--cream-bg);padding:10px 0 20px;
+    border-bottom:1px solid rgba(63,31,15,.1);
+    transform:translateY(-130%);transition:transform .3s ease;box-shadow:var(--shadow);
+  }
+  .nav.open{transform:translateY(0)}
+  .nav a{width:100%;text-align:center;padding:15px 0}
+  .nav a:not(.btn)::after{display:none}
+  .btn-nav{margin:12px auto 0;width:auto;padding:11px 30px}
+  .nav-toggle.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .nav-toggle.open span:nth-child(2){opacity:0}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+}
+
+@media (max-width:480px){
+  .hero{padding:44px 0 100px}
+  .hero-logo{width:150px;height:150px}
+  .hero-kicker{letter-spacing:.25em;font-size:.92rem}
+  .hero-sub{font-size:.94rem;line-height:1.9}
+  .section{padding:56px 0}
+  .info-list li{flex-direction:column;gap:4px}
+  .info-label{flex-basis:auto}
+}
+
+/* 尊重減少動態偏好 */
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important;transition:none!important}
+}
